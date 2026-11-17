@@ -1,0 +1,9 @@
+rank,id,title,wsjf_score,cost_of_delay,business_value,time_criticality,risk_reduction,job_size,notes
+1,US-104,Audit trail export to CSV,13.0,26,5,8,13,2,Supports inspection readiness
+2,US-106,Instrument calibration reminders,7.0,21,5,8,8,3,Prevents out-of-tolerance use
+3,US-101,Electronic signature on result approval,5.88,47,13,13,21,8,Regulatory requirement
+4,US-103,Turnaround time dashboard,4.33,13,8,3,2,3,Requested by operations
+5,US-102,Sample intake barcode scanning,3.2,16,8,5,3,5,Reduces manual entry
+6,US-107,Bulk status update for samples,3.0,6,3,2,1,2,Analyst time saver
+7,US-105,Customer portal result download,1.54,20,13,5,2,13,Client experience
+8,US-108,Stability study scheduling module,0.67,14,8,3,3,21,Large scope; candidate to split

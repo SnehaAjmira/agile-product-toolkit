@@ -1,0 +1,9 @@
+id,title,business_value,time_criticality,risk_reduction,job_size,notes
+US-101,Electronic signature on result approval,13,13,21,8,Regulatory requirement
+US-102,Sample intake barcode scanning,8,5,3,5,Reduces manual entry
+US-103,Turnaround time dashboard,8,3,2,3,Requested by operations
+US-104,Audit trail export to CSV,5,8,13,2,Supports inspection readiness
+US-105,Customer portal result download,13,5,2,13,Client experience
+US-106,Instrument calibration reminders,5,8,8,3,Prevents out-of-tolerance use
+US-107,Bulk status update for samples,3,2,1,2,Analyst time saver
+US-108,Stability study scheduling module,8,3,3,21,Large scope; candidate to split

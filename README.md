@@ -1,133 +1,81 @@
 # Agile Product Toolkit
 
-> A comprehensive collection of Agile/Scrum templates, tools, and automation scripts used by Product Owners and Business Analysts to manage the full SDLC — from discovery through UAT and post-go-live stabilization.
->
-> ![Agile](https://img.shields.io/badge/Agile-Scrum-009FDA) ![PSPO](https://img.shields.io/badge/PSPO%20I-Certified-green) ![Python](https://img.shields.io/badge/Python-automation-blue?logo=python) ![Jira](https://img.shields.io/badge/Jira-workflow-0052CC?logo=jira)
->
-> ---
->
-> ## 📌 What's in This Toolkit
->
-> This toolkit captures real-world artifacts and automation scripts built while managing products at Eagle Analytical Services and Bright Mind Enrichment. It includes ready-to-use templates aligned with Agile best practices, WSJF prioritization, and regulatory compliance requirements.
->
-> ---
->
-> ## 📁 Project Structure
->
-> ```
-> agile-product-toolkit/
-> ├── templates/
-> │   ├── BRD_template.md              # Business Requirements Document
-> │   ├── FRD_template.md              # Functional Requirements Document
-> │   ├── user_story_template.md       # User story + acceptance criteria
-> │   ├── sprint_planning_template.md  # Sprint planning agenda & checklist
-> │   ├── retrospective_template.md    # Sprint retrospective format
-> │   └── uat_test_plan_template.md    # UAT test plan template
-> ├── scripts/
-> │   ├── backlog_prioritizer.py       # WSJF scoring calculator
-> │   ├── jira_export_parser.py        # Parse Jira CSV exports to reports
-> │   └── sprint_velocity_tracker.py  # Track team velocity over time
-> ├── docs/
-> │   ├── sdlc_guide.md               # Full SDLC process documentation
-> │   └── definitions_of_done.md      # DoD checklist by project phase
-> └── README.md
-> ```
->
-> ---
->
-> ## 📋 Templates Included
->
-> ### Business Requirements Document (BRD)
-> - Executive summary, business objectives, scope
-> - - Stakeholder analysis, assumptions, constraints
->   - - High-level requirements and success criteria
->    
->     - ### Functional Requirements Document (FRD)
->     - - System overview and architecture context
->       - - Detailed functional requirements (FR-001 format)
->         - - Non-functional requirements (performance, security, compliance)
->           - - Data flow diagrams and integration points
->            
->             - ### User Story Template
->             - ```
->               As a [role], I want [feature] so that [benefit].
->
->               Acceptance Criteria:
->               - Given [context], when [action], then [outcome]
->               - ...
->
->               Definition of Done:
->               - [ ] Code reviewed
->               - [ ] Unit tests passing
->               - [ ] UAT sign-off obtained
->               - [ ] Documentation updated
->               ```
->
-> ### Sprint Planning Checklist
-> - [ ] Backlog refined and estimated (WSJF scored)
-> - [ ] - [ ] Sprint goal defined and agreed upon
-> - [ ] - [ ] Capacity confirmed (accounting for PTO, meetings)
-> - [ ] - [ ] Dependencies identified and resolved
-> - [ ] - [ ] Definition of Done reviewed
->
-> - [ ] ---
->
-> - [ ] ## 🔧 Automation Scripts
->
-> - [ ] ### `backlog_prioritizer.py` — WSJF Calculator
-> - [ ] Implements **Weighted Shortest Job First (WSJF)** scoring to objectively prioritize backlog items by business value, time criticality, risk reduction, and job size.
->
-> - [ ] ```bash
-> - [ ] python scripts/backlog_prioritizer.py --input backlog.csv --output prioritized_backlog.csv
-> - [ ] ```
->
-> - [ ] ### `sprint_velocity_tracker.py` — Velocity Dashboard
-> - [ ] Tracks sprint velocity over time and generates a trend chart to support sprint planning accuracy.
->
-> - [ ] ```bash
-> - [ ] python scripts/sprint_velocity_tracker.py --sprints 10
-> - [ ] ```
->
-> - [ ] ---
->
-> - [ ] ## 📊 WSJF Scoring Formula
->
-> - [ ] ```
-> - [ ] WSJF = Cost of Delay / Job Duration
->
-> - [ ] Cost of Delay = Business Value + Time Criticality + Risk Reduction
-> - [ ] ```
->
-> - [ ] | Story | Business Value | Time Criticality | Risk Reduction | Job Size | WSJF Score |
-> - [ ] |---|---|---|---|---|---|
-> - [ ] | Feature A | 8 | 5 | 3 | 2 | 8.0 |
-> - [ ] | Feature B | 5 | 8 | 2 | 5 | 3.0 |
-> - [ ] | Bug Fix C | 3 | 13 | 8 | 1 | 24.0 |
->
-> - [ ] ---
->
-> - [ ] ## 🚀 Getting Started
->
-> - [ ] ```bash
-> - [ ] git clone https://github.com/SnehaAjmira/agile-product-toolkit.git
-> - [ ] cd agile-product-toolkit
->
-> - [ ] # Install Python dependencies for scripts
-> - [ ] pip install pandas matplotlib
->
-> - [ ] # Run WSJF prioritizer
-> - [ ] python scripts/backlog_prioritizer.py --help
-> - [ ] ```
->
-> - [ ] ---
->
-> - [ ] ## 📌 Key Principles
->
-> - [ ] - **Always lead with business value** — every user story must connect to a measurable outcome
-> - [ ] - **Refine before you sprint** — backlog items should be ready before sprint planning
-> - [ ] - **UAT is non-negotiable** — no feature ships without stakeholder sign-off
-> - [ ] - **Document as you go** — BRDs and FRDs should be living documents
->
-> - [ ] ---
->
-> - [ ] *Built by [Sneha Ajmira](https://linkedin.com/in/contactsnehaajmira) | PSPO I Certified Product Owner*
+Requirements templates and a tested WSJF backlog prioritization script for Product Owners and Business Analysts.
+
+| | |
+|---|---|
+| **Domain** | Product ownership, business analysis, Agile/Scrum |
+| **Tools** | Python 3 (standard library only), Markdown |
+| **Contents** | 2 templates, 1 script, sample data, unit tests |
+
+---
+
+## 1. Contents
+
+| File | Purpose |
+|---|---|
+| `templates/BRD_template.md` | Business Requirements Document: objectives, scope, stakeholders, requirements, sign-off |
+| `templates/user_story_template.md` | User story with Given/When/Then acceptance criteria, NFRs, and Definition of Done |
+| `scripts/backlog_prioritizer.py` | Scores and ranks backlog items using WSJF |
+| `examples/sample_backlog.csv` | 8 example backlog items from a laboratory system context |
+| `examples/prioritized_backlog.csv` | Output generated from the sample file |
+| `tests/test_backlog_prioritizer.py` | Unit tests for scoring, validation, and ranking |
+
+## 2. WSJF Method
+
+```
+Cost of Delay = Business Value + Time Criticality + Risk Reduction
+WSJF          = Cost of Delay / Job Size
+```
+
+All four inputs use the modified Fibonacci scale (1, 2, 3, 5, 8, 13, 21). Values outside the scale are rejected. Ties are broken by smaller job size, then higher cost of delay.
+
+## 3. Example Output
+
+Generated from `examples/sample_backlog.csv`:
+
+| Rank | ID | Item | WSJF |
+|---:|---|---|---:|
+| 1 | US-104 | Audit trail export to CSV | 13.00 |
+| 2 | US-106 | Instrument calibration reminders | 7.00 |
+| 3 | US-101 | Electronic signature on result approval | 5.88 |
+| 4 | US-103 | Turnaround time dashboard | 4.33 |
+| 5 | US-102 | Sample intake barcode scanning | 3.20 |
+| 6 | US-107 | Bulk status update for samples | 3.00 |
+| 7 | US-105 | Customer portal result download | 1.54 |
+| 8 | US-108 | Stability study scheduling module | 0.67 |
+
+The ranking shows the main WSJF trade-off: US-101 has the highest cost of delay (47) but ranks third because of its size, and US-108 drops to last because its 21-point size signals it should be split.
+
+## 4. How to Run
+
+```bash
+# Demo backlog
+python scripts/backlog_prioritizer.py
+
+# Your own backlog
+python scripts/backlog_prioritizer.py --input examples/sample_backlog.csv --output examples/prioritized_backlog.csv
+
+# Tests
+python -m unittest discover -s tests -v
+```
+
+Input CSV columns: `id, title, business_value, time_criticality, risk_reduction, job_size, notes`.
+
+## 5. Repository Structure
+
+```
+agile-product-toolkit/
+├── templates/
+│   ├── BRD_template.md
+│   └── user_story_template.md
+├── scripts/
+│   └── backlog_prioritizer.py
+├── examples/
+│   ├── sample_backlog.csv
+│   └── prioritized_backlog.csv
+└── tests/
+    └── test_backlog_prioritizer.py
+```
+
+Author: [Sneha Ajmira](https://linkedin.com/in/contactsnehaajmira), PSPO I
